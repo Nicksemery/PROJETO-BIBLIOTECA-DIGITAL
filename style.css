@@ -3,21 +3,18 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
-    text-align: center;
-    color: #8B4513FF;
 }
 
 header {
     background: #8B4513;
-    color: #dddddd;
-    padding: 10px 20px 20px;
+    color: white;
+    padding: 10px 20px;
     text-align: center;
-    border-bottom: 3px solid #8B4513;
 }
 
 nav a {
-    color: #dddddd;
     margin: 0 15px;
+    color: white;
     text-decoration: none;
     cursor: pointer;
 }
@@ -31,25 +28,15 @@ main {
 }
 
 form {
-    max-width: 500px;
+    max-width: 400px;
     margin: 0 auto;
-    color: black;
-    background-color: #dddddd;
-    border: 1px solid #8B4513;
-    border-radius: 10px;
-    width: 100%;
-    padding: 20px 0;
 }
 
 input {
-    text-align: center;
-    display: flex;
-    margin: 5px auto 20px;
+    display: block;
+    margin: 10px 0;
     padding: 10px;
-    max-width: 300px;
     width: 100%;
-    border-radius: 10px;
-    border: 1px solid #8B4513;
 }
 
 button {
@@ -58,20 +45,17 @@ button {
     border: none;
     padding: 10px;
     cursor: pointer;
-    margin-top: 10px;
-    border-radius: 10px;
 }
 
 ul {
     list-style-type: none;
     padding: 0;
-    margin-top: 50px;
 }
 
 li {
     background: #fff;
-    margin: 20px 30rem;
-    padding: 20px;
-    border: 1px solid #8B4513;
-    border-radius: 10px;
+    margin: 5px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }
