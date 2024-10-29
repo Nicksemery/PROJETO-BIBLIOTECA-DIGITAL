@@ -1,9 +1,16 @@
-// Funções para carregar conteúdo
+function setActiveLink(linkId) {
+    document.querySelectorAll('nav a').forEach(link => {
+        link.classList.remove('active'); 
+    });
+    document.getElementById(linkId).classList.add('active');
+}
+
 function loadHome() {
     document.getElementById('content').innerHTML = `
         <h2>Explore nosso acervo</h2>
         <p>Descubra as histórias e lendas dos anões!</p>
     `;
+    setActiveLink('linkHome');
 }
 
 function loadCadastro() {
@@ -28,11 +35,11 @@ function loadCadastro() {
             <button type="submit">Cadastrar</button>
         </form>
     `;
+    setActiveLink('linkCadastro');
     
-    // Adiciona evento ao formulário
     document.getElementById('formLivro').addEventListener('submit', function(e) {
         e.preventDefault();
-        
+
         const titulo = document.getElementById('titulo').value;
         const autor = document.getElementById('autor').value;
         const genero = document.getElementById('genero').value;
@@ -46,27 +53,28 @@ function loadCadastro() {
         }
 
         const livro = { titulo, autor, genero, ano, capa };
-        
+
         const livros = JSON.parse(localStorage.getItem('livros')) || [];
         livros.push(livro);
         localStorage.setItem('livros', JSON.stringify(livros));
 
         alert('Livro cadastrado com sucesso!');
         this.reset();
-        loadLivros(); // Carrega a lista de livros
+        loadLivros();
     });
 }
 
 function loadLivros() {
     const livros = JSON.parse(localStorage.getItem('livros')) || [];
-    const lista = livros.map(livro => `
+    const lista = livros.map((livro, index) => `
         <li>
             <strong>${livro.titulo}</strong> - ${livro.autor} (${livro.ano})<br>
             Gênero: ${livro.genero}<br>
-            <img src="${livro.capa}" alt="${livro.titulo}" style="width:100px;">
+            <img src="${livro.capa}" alt="${livro.titulo}"><br>
+            <button onclick="deleteLivro(${index})">Deletar</button>
         </li>
     `).join('');
-    
+
     document.getElementById('content').innerHTML = `
         <h2>Livros Cadastrados</h2>
         <ul>${lista}</ul>
@@ -74,37 +82,43 @@ function loadLivros() {
         <input type="text" id="filterAutor" placeholder="Filtrar por Autor">
         <input type="text" id="filterGenero" placeholder="Filtrar por Gênero">
     `;
-
-    // Adiciona eventos de filtragem
+    setActiveLink('linkLivros'); 
+    
     document.getElementById('filterAutor').addEventListener('input', filterLivros);
     document.getElementById('filterGenero').addEventListener('input', filterLivros);
+}
+
+function deleteLivro(index) {
+    let livros = JSON.parse(localStorage.getItem('livros')) || [];
+    livros.splice(index, 1);  
+    localStorage.setItem('livros', JSON.stringify(livros)); 
+    loadLivros();  
 }
 
 function filterLivros() {
     const autorFilter = document.getElementById('filterAutor').value.toLowerCase();
     const generoFilter = document.getElementById('filterGenero').value.toLowerCase();
     const livros = JSON.parse(localStorage.getItem('livros')) || [];
-    
+
     const filteredBooks = livros.filter(livro => {
         return (livro.autor.toLowerCase().includes(autorFilter) || autorFilter === "") &&
-               (livro.genero.toLowerCase().includes(generoFilter) || generoFilter === "");
+            (livro.genero.toLowerCase().includes(generoFilter) || generoFilter === "");
     });
-    
-    const lista = filteredBooks.map(livro => `
+
+    const lista = filteredBooks.map((livro, index) => `
         <li>
             <strong>${livro.titulo}</strong> - ${livro.autor} (${livro.ano})<br>
             Gênero: ${livro.genero}<br>
-            <img src="${livro.capa}" alt="${livro.titulo}" style="width:100px;">
+            <img src="${livro.capa}" alt="${livro.titulo}"><br>
+            <button onclick="deleteLivro(${index})">Deletar</button>
         </li>
     `).join('');
-    
+
     document.getElementById('content').querySelector('ul').innerHTML = lista;
 }
 
-// Eventos dos links
 document.getElementById('linkHome').addEventListener('click', loadHome);
 document.getElementById('linkCadastro').addEventListener('click', loadCadastro);
 document.getElementById('linkLivros').addEventListener('click', loadLivros);
 
-// Carrega a página inicial ao iniciar
 loadHome();
