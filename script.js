@@ -10,6 +10,7 @@ function loadHome() {
         <h2>Explore nosso acervo</h2>
         <p>Descubra as histórias e lendas dos anões!</p>
     `;
+    
     setActiveLink('linkHome');
 }
 

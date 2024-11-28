@@ -1,3 +1,6 @@
+/* Estilos gerais (desktop e telas maiores) */
+
+/* Corpo */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -7,14 +10,16 @@ body {
     color: #8B4513FF;
 }
 
+/* Header */
 header {
     background: #8B4513;
     color: #dddddd;
-    padding: 10px 20px 20px;
+    padding: 10px 20px;
     text-align: center;
     border-bottom: 3px solid #8B4513;
 }
 
+/* Navbar */
 nav a {
     color: #dddddd;
     margin: 0 15px;
@@ -32,10 +37,40 @@ nav a.active {
     border-radius: 1px;
 }
 
+/* Main Content */
 main {
     padding: 20px;
 }
 
+/* Lista de livros */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+li {
+    background: #fff;
+    margin: 15px;
+    padding: 15px;
+    border: 1px solid #8B4513;
+    border-radius: 10px;
+    text-align: center;
+    width: 250px;  /* Largura fixa para telas grandes */
+    box-sizing: border-box;
+}
+
+li img {
+    margin-top: 10px;
+    width: 150px;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Formulário */
 form {
     max-width: 500px;
     margin: 0 auto;
@@ -68,21 +103,68 @@ button {
     border-radius: 10px;
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
-    margin-top: 50px;
+/* Estilo para telas pequenas (tablets, celulares) */
+@media (max-width: 768px) {
+    header {
+        padding: 10px 10px;
+    }
+
+    nav a {
+        margin: 0 10px;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    ul {
+        flex-direction: column;  /* Empilha os itens em dispositivos pequenos */
+        align-items: center;
+    }
+
+    li {
+        width: 100%;  /* Faz os livros ocuparem toda a largura disponível */
+        max-width: 350px;  /* Limita a largura para não ocupar toda a tela */
+        margin: 10px 0;  /* Ajusta o espaçamento entre os itens */
+    }
+
+    form {
+        padding: 15px 0;
+        max-width: 90%;  /* O formulário ocupa 90% da largura da tela */
+    }
+
+    input {
+        max-width: 100%;  /* Faz com que os inputs ocupem 100% da largura disponível */
+    }
 }
 
-li {
-    background: #fff;
-    margin: 20px 35rem;
-    padding: 20px;
-    border: 1px solid #8B4513;
-    border-radius: 10px;
-}
+/* Estilo para telas muito pequenas (celulares em modo retrato) */
+@media (max-width: 480px) {
+    li {
+        width: 100%;  /* Os livros ocupam toda a largura da tela */
+        margin: 10px 0;
+    }
 
-li img{
-    margin-top: 10px;
-    width: 175px;
+    button {
+        padding: 8px;
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 1.5em;  /* Reduz o tamanho do título */
+    }
+
+    nav a {
+        font-size: 0.9em;  /* Ajusta o tamanho da fonte do menu */
+    }
+}
+@media (max-width: 320px) {
+    form {
+        max-width: 95%; /* O formulário pode ocupar 95% da largura da tela */
+        padding: 10px; /* Diminui o padding para melhor encaixe */
+    }
+
+    input, button {
+        width: 90%;  /* Garante que os inputs e o botão ocupem toda a largura da tela */
+    }
 }
