@@ -1,25 +1,28 @@
-/* Estilos gerais (desktop e telas maiores) */
-
-/* Corpo */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-image: url('/Imagens/fundo.jpg'); 
+    background-size: cover 30%; 
+    background-position: center; 
+    background-attachment: fixed;  
     text-align: center;
     color: #8B4513FF;
 }
 
-/* Header */
-header {
-    background: #8B4513;
-    color: #dddddd;
-    padding: 10px 20px;
-    text-align: center;
-    border-bottom: 3px solid #8B4513;
+#color{
+    color: rgb(0, 0, 0);
 }
 
-/* Navbar */
+header h1 {
+    font-family: 'Cinzel', serif; /* Aplica a fonte medieval */
+    font-size: 3em; /* Aumenta o tamanho do título */
+    color: #FFD700; /* Cor dourada para dar um toque medieval */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra suave para destacar o texto */
+    text-transform: uppercase; /* Torna as letras maiúsculas */
+    letter-spacing: 3px; /* Aumenta o espaçamento entre as letras */
+}
+
 nav a {
     color: #dddddd;
     margin: 0 15px;
@@ -37,12 +40,12 @@ nav a.active {
     border-radius: 1px;
 }
 
-/* Main Content */
+
 main {
     padding: 20px;
 }
 
-/* Lista de livros */
+
 ul {
     list-style-type: none;
     padding: 0;
@@ -59,7 +62,7 @@ li {
     border: 1px solid #8B4513;
     border-radius: 10px;
     text-align: center;
-    width: 250px;  /* Largura fixa para telas grandes */
+    width: 250px;  
     box-sizing: border-box;
 }
 
@@ -70,7 +73,6 @@ li img {
     border-radius: 5px;
 }
 
-/* Formulário */
 form {
     max-width: 500px;
     margin: 0 auto;
@@ -103,7 +105,6 @@ button {
     border-radius: 10px;
 }
 
-/* Estilo para telas pequenas (tablets, celulares) */
 @media (max-width: 768px) {
     header {
         padding: 10px 10px;
@@ -118,30 +119,29 @@ button {
     }
 
     ul {
-        flex-direction: column;  /* Empilha os itens em dispositivos pequenos */
+        flex-direction: column;
         align-items: center;
     }
 
     li {
-        width: 100%;  /* Faz os livros ocuparem toda a largura disponível */
-        max-width: 350px;  /* Limita a largura para não ocupar toda a tela */
-        margin: 10px 0;  /* Ajusta o espaçamento entre os itens */
+        width: 100%;
+        max-width: 350px;
+        margin: 10px 0;
     }
 
     form {
         padding: 15px 0;
-        max-width: 90%;  /* O formulário ocupa 90% da largura da tela */
+        max-width: 90%;
     }
 
     input {
-        max-width: 100%;  /* Faz com que os inputs ocupem 100% da largura disponível */
+        max-width: 100%;
     }
 }
 
-/* Estilo para telas muito pequenas (celulares em modo retrato) */
 @media (max-width: 480px) {
     li {
-        width: 100%;  /* Os livros ocupam toda a largura da tela */
+        width: 100%;
         margin: 10px 0;
     }
 
@@ -151,20 +151,113 @@ button {
     }
 
     h1 {
-        font-size: 1.5em;  /* Reduz o tamanho do título */
+        font-size: 1.5em;
     }
 
     nav a {
-        font-size: 0.9em;  /* Ajusta o tamanho da fonte do menu */
+        font-size: 0.9em;
     }
 }
 @media (max-width: 320px) {
     form {
-        max-width: 95%; /* O formulário pode ocupar 95% da largura da tela */
-        padding: 10px; /* Diminui o padding para melhor encaixe */
+        max-width: 95%;
+        padding: 10px; 
     }
 
     input, button {
-        width: 90%;  /* Garante que os inputs e o botão ocupem toda a largura da tela */
+        width: 90%;  
     }
+}
+@media (max-width: 375px) {
+    /* Reduzindo o tamanho da fonte dos títulos nas telas menores */
+    .biblioteca-container h2 {
+        font-size: 1.8em; /* Reduzindo o tamanho do título */
+        margin-bottom: 15px;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    /* Ajustando o tamanho das fontes nas abas */
+    header h1 {
+        font-size: 1.4em;  /* Ajustando o tamanho da fonte do título principal */
+    }
+
+    nav a {
+        font-size: 0.85em; /* Menor tamanho de fonte para links de navegação */
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    .biblioteca-container {
+        padding: 20px; /* Ajustando o padding para telas pequenas */
+        margin: 10px;
+        max-width: 90%; /* Certificando-se que a div não ocupe mais do que a tela */
+    }
+
+    /* Ajustando os inputs e botões para telas pequenas */
+    input, button {
+        width: 100%;
+    }
+    form {
+        padding: 15px 0;
+        width: 50%; 
+    }
+
+}
+@media (max-width: 768px) {
+    header {
+        padding: 10px;
+    }
+
+    nav a {
+        font-size: 0.9em;
+        margin: 0 8px;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    form {
+        padding: 15px 0;
+        width: 50%; 
+    }
+
+    input, button {
+        width: 65%;
+    }
+}
+
+.biblioteca-container {
+    background-color: rgba(0, 0, 0, 0.7);  /* Preto com 70% de opacidade */
+    border: 2px solid #6A4E23;  /* Cor da borda */
+    padding: 30px;
+    margin: 30px auto;
+    max-width: 1200px;
+    border-radius: 20px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    background-image: url('background.png'); /* Fundo com tema de folha ou madeira */
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white; /* Cor do texto para garantir boa legibilidade */
+}
+.biblioteca-container h2 {
+    font-family: 'Cinzel', serif; /* Fonte com estilo medieval */
+    font-size: 2.5em;
+    color: #6A4E23; /* Tom dourado ou madeira */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+/* Descrição */
+.biblioteca-container p {
+    font-size: 1.2em;
+    color: #3E2C1C;
+    line-height: 1.6;
+    margin-bottom: 40px;
 }

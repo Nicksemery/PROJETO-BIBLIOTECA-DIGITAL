@@ -7,8 +7,10 @@ function setActiveLink(linkId) {
 
 function loadHome() {
     document.getElementById('content').innerHTML = `
+    <div class="biblioteca-container">
         <h2>Explore nosso acervo</h2>
         <p>Descubra as histórias e lendas dos anões!</p>
+    </div>
     `;
     
     setActiveLink('linkHome');
