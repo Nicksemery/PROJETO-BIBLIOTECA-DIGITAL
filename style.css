@@ -24,7 +24,7 @@ header h1 {
 }
 
 nav a {
-    color: #dddddd;
+    color: #FFD700;
     margin: 0 15px;
     text-decoration: none;
     cursor: pointer;
@@ -56,7 +56,8 @@ ul {
 }
 
 li {
-    background: #fff;
+    color: #FFD700;
+    background: #000000;
     margin: 15px;
     padding: 15px;
     border: 1px solid #8B4513;
@@ -76,8 +77,8 @@ li img {
 form {
     max-width: 500px;
     margin: 0 auto;
-    color: black;
-    background-color: #dddddd;
+    color: #FFD700;
+    background-color: #000000;
     border: 1px solid #8B4513;
     border-radius: 10px;
     width: 100%;
